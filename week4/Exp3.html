@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Feedback Form</title>
+    <style>
+        button{
+            color:black;
+            margin-top:6px;
+            background-color:aquamarine;
+            border-radius:4px;
+            cursor:pointer;
+        }
+        button:hover{
+            opacity:0.7;
+            transition:0.3s;
+        }
+        button:active{
+            background-color:rgb(26, 190, 26);
+        }
+        .form{
+            border:solid;
+            border-radius:2.5px;
+            margin:auto;
+            width:300px;
+            height:200px;
+            text-align:center;
+            background-color:aqua;
+        }
+        button:focus{
+            background-color:burlywood;
+        }
+        input{
+            margin-bottom:6px;
+            margin-top:3px;
+            border-color:blueviolet;
+        }
+    </style>
+  </head>
+  <body style="text-align:center">
+    <h2>Feedback Form</h2>
+    <div class="form">
+    <form>
+      Name:<input type="text" placeholder="name"> <br>
+      Email:<input type="gmail" placeholder="mail"> <br>
+      Feedback<textarea rows="3" columns="10"></textarea> <br>
+      How satisfied are you?<br>
+      <input type="radio" name="How satisfied are you?" value="Satisfied">Satisfied
+      <input type="radio" name="How satisfied are you?" value="Neutral">Neutral
+      <input type="radio" name="How satisfied are you?" value="Unsaisfied">Unsatisfied
+      <br>
+      <button>Submit</button>
+    </form>
+    </div>
+  </body>
+</html>

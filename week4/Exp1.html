@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .forms{
+                background-color:aqua;
+                text-align:center;
+                margin:auto;
+                border:solid;
+                width:400px;
+            }
+            input{
+                border-color:rgb(241, 22, 22);
+                border-style:solid;
+                padding-bottom: 4px;
+                margin-bottom: 3px;
+            }
+            button{
+                color : chartreuse;
+                background-color: blue;
+                border-radius: 5px;
+                width:81px;
+                height:26px;
+            }
+            button:hover{
+                cursor:pointer;
+                opacity:0.7;
+                transition: 0.3s;
+            }
+            button:active{
+                background-color:green;
+            }
+        </style>
+    </head>
+     <body>
+    <h3 style="text-align:center">Student Registration From</h3>
+    <form class="forms"> 
+      Student name:<input type=text placeholder="Enter name"> <br>
+      Roll number:<input type=text placeholder="Enter rollno"> <br>
+      Email:<input type=text placeholder="Enter mail"> <br>
+      Phone number:<input type="phone number"> <br>
+      <label>Gender:</label>
+      <input type="radio" name="Gender:" value="male">male
+      <input type="radio" name="Gender:" value="female">female<br>
+      <label>Branch</label>
+      <select name="Branch">
+        <option>IT</option>
+        <option>CSE</option>
+        <option>CSM</option>
+        <option>ECE</option>
+      </select>
+      <br>
+      <button>Submit</button>
+    </form>
+</html>
