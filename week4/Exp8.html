@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exp8</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        .calculator {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            width: 260px;
+        }
+        
+        .display {
+            background-color: #fff;
+            height: 50px;
+            margin-bottom: 15px;
+            text-align: right;
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+
+        .buttons {
+            display: grid;                      
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #e0e0e0;
+            transition: 0.2s;
+        }
+
+        .operator {
+            background-color: orange;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #bbb;
+        }
+
+        .operator:hover {
+            background-color: darkorange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator">
+
+        <div class="display">0</div>
+
+        <div class="buttons">
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button class="operator">/</button>
+
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button class="operator">*</button>
+
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button class="operator">-</button>
+
+            <button>0</button>
+            <button>.</button>
+            <button>=</button>
+            <button class="operator">+</button>
+        </div>
+
+    </div>
+
+</body>
+</html>

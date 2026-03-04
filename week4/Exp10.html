@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exp10</title>
+    <style>
+      body{
+        margin:0;
+        font-family:'Times New Roman', Times, serif;
+      }
+
+      .navbar{
+        background-color:darkblue;
+      }
+
+      .navbar ul{
+        list-style: none;
+        margin:0;
+        padding:0;
+        display:flex;
+      }
+
+      .navbar li{
+        position:relative;
+      }
+
+      .navbar a{
+        display:block;
+        padding:14px 20px;
+        color:white;
+        text-decoration:none;
+      }
+
+      .navbar a:hover{
+        background-color:navy;
+      }
+
+      .dropdown{
+        display:none;
+        position:absolute;
+        background-color:darkblue;
+        top:100%;
+        left:0;
+        min-width:150px;
+        flex-direction:column;
+      }
+
+      .dropdown a{
+        padding:10px;
+      }
+
+      .navbar li:hover .dropdown{
+        display:block;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#">Home</a></li>
+
+        <li>
+          <a href="#">Courses</a>
+          <div class="dropdown">
+            <a href="#">B.Tech</a>
+            <a href="#">MBA</a>
+            <a href="#">MCA</a>
+          </div>
+        </li>
+
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>

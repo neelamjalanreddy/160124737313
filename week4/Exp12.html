@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exp12</title>
+    <style>
+      body{
+        margin:0;
+        font-family:Arial, sans-serif;
+      }
+
+      .left{
+        flex:1;
+        background-color:lightblue;
+        padding:20px;
+      }
+
+      .right{
+        flex:1;
+        background-color:lightgray;
+        padding:20px;
+      }
+
+      @media(max-width:768px){
+        .container{
+          flex-direction:column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <h2>Left Column</h2>
+        <p>This is the left side content.</p>
+      </div>
+
+      <div class="right">
+        <h2>Right Column</h2>
+        <p>This is the right content.</p>
+      </div>
+    </div>
+  </body>
+</html>
