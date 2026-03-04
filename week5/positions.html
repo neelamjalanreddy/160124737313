@@ -1,0 +1,80 @@
+<!DOCTYPE Html>
+<html>
+<head>
+<title>Position</title>
+<style>
+
+ul{
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: black;
+}
+
+ul li{
+  display: inline-block;
+  position: relative;
+}
+
+ul li a{
+  display: inline-block;
+  padding: 15px 20px;
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-decoration: none;
+}
+
+ul li a:hover{
+  background-color: #4d4949;
+}
+
+ul li ul{
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: black;
+  padding: 0;
+  min-width: 150px;
+}
+
+ul li ul li{
+  display: block;
+}
+
+ul li ul li a{
+  display: block;
+  padding: 10px 20px;
+}
+
+ul li:hover ul{
+  display: block;
+}
+
+</style>
+</head>
+
+<body>
+<h1>CSS Positions</h1>
+
+<ul>
+  <li><a href="#">Home</a></li>
+  <li><a href="#">About us</a></li>
+
+  <li>
+    <a href="#">Services</a>
+    <ul>
+      <li><a href="#">Service1</a></li>
+      <li><a href="#">Service2</a></li>
+      <li><a href="#">Service3</a></li>
+      <li><a href="#">Service4</a></li>
+      <li><a href="#">Service5</a></li>
+    </ul>
+  </li>
+
+  <li><a href="#">Contact</a></li>
+</ul>
+
+</body>
+</html>

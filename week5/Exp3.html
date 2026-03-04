@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exp3</title>
+
+  <style>
+    body{
+      margin:0;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#4facfe,#00f2fe);
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    .analyzer{
+      background:white;
+      padding:35px;
+      width:380px;
+      border-radius:15px;
+      box-shadow:0 15px 30px rgba(0,0,0,0.2);
+      text-align:center;
+    }
+
+    .analyzer h2{
+      margin-bottom:20px;
+      color:#333;
+    }
+
+    #input{
+      width:100%;
+      padding:12px;
+      font-size:16px;
+      border-radius:8px;
+      border:2px solid #ddd;
+      outline:none;
+      margin-bottom:20px;
+      transition:0.3s;
+    }
+
+    #input:focus{
+      border-color:#4facfe;
+      box-shadow:0 0 8px rgba(79,172,254,0.4);
+    }
+
+    #analyze{
+      width:100%;
+      padding:12px;
+      font-size:16px;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      background:#4facfe;
+      color:white;
+      transition:0.3s;
+    }
+
+    #analyze:hover{
+      background:#0077ff;
+      transform:scale(1.03);
+    }
+
+    .result{
+      margin-top:15px;
+      font-size:16px;
+      font-weight:500;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="analyzer">
+      <h2>Number Analyzer</h2>
+      <input type="text" id="input" placeholder="Enter a number">
+      <button id="analyze">Analyze</button>
+
+      <div id="result1" class="result"></div>
+      <div id="result2" class="result"></div>
+      <div id="result3" class="result"></div>
+      <div id="result4" class="result"></div>
+  </div>
+
+<script>
+    const analyzeButton = document.getElementById("analyze");
+    const input = document.getElementById("input");
+    const result1 = document.getElementById("result1");
+    const result2 = document.getElementById("result2");
+    const result3 = document.getElementById("result3");
+    const result4 = document.getElementById("result4");
+
+    analyzeButton.addEventListener("click", () => {
+        const number = parseInt(input.value);
+
+        if(isNaN(number)){
+            result1.innerHTML = "Please enter a valid number";
+            result1.style.color = "red";
+            result2.innerHTML = "";
+            result3.innerHTML = "";
+            result4.innerHTML = "";
+            return;
+        }
+
+        if(isPalindrome(number)){
+            result1.innerHTML = number + " is a Palindrome number";
+            result1.style.color = "green";
+        } else {
+            result1.innerHTML = number + " is not a Palindrome number";
+            result1.style.color = "crimson";
+        }
+
+        if(isArmstrong(number)){
+            result2.innerHTML = number + " is an Armstrong number";
+            result2.style.color = "green";
+        } else {
+            result2.innerHTML = number + " is not an Armstrong number";
+            result2.style.color = "crimson";
+        }
+
+        if(isPrime(number)){
+            result3.innerHTML = number + " is a Prime number";
+            result3.style.color = "green";
+        } else {
+            result3.innerHTML = number + " is not a Prime number";
+            result3.style.color = "crimson";
+        }
+
+        let factorial = 1;
+        for(let i = 1; i <= number; i++){
+            factorial *= i;
+        }
+
+        result4.innerHTML = "Factorial of " + number + " is " + factorial;
+        result4.style.color = "#0077ff";
+    });
+
+    const isPrime = (num) => {
+        if(num <= 1) return false;
+        for(let i = 2; i <= Math.sqrt(num); i++){
+            if(num % i === 0) return false;
+        }
+        return true;
+    };
+
+    const isPalindrome = (num) => {
+        let temp = num;
+        let rev = 0;
+        while(temp > 0){
+            rev = rev * 10 + temp % 10;
+            temp = Math.floor(temp / 10);
+        }
+        return num === rev;
+    };
+
+    const isArmstrong = (num) => {
+        let temp = num;
+        let sum = 0;
+        let length = num.toString().length;
+        while(temp > 0){
+            sum += Math.pow(temp % 10, length);
+            temp = Math.floor(temp / 10);
+        }
+        return num === sum;
+    };
+</script>
+
+</body>
+</html>

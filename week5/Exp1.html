@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exp1</title>
+
+    <style>
+      body{
+        font-family: Arial;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+      }
+      .login-box {
+            background: white;
+            padding: 20px;
+            width: 300px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 8px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: gray;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+  </head>
+  <body>
+  <div class="login-box">
+    <h1>Login</h1>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Enter username">
+      <div class="error" id="userError"></div>
+
+      <input type="password" id="password" placeholder="Enter password">
+      <div class="error" id="passError"></div>
+
+      <button type="submit" id="loginBtn">Login</button>
+      <p id="message"></p>
+    </form>
+  </div>
+
+  <script>
+    function attemptTracker(){
+      let attempts=0;
+
+      return function(){
+        attempts++;
+        return attempts;
+      }
+    }
+
+    let track = attemptTracker();
+
+    const form = document.getElementById("loginForm");
+    const username=document.getElementById("username");
+    const password = document.getElementById("password");
+    const userError = document.getElementById("userError");
+    const passError = document.getElementById("passError");
+    const message = document.getElementById("message");
+    const loginBtn = document.getElementById("loginBtn");
+   
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+
+      userError.innerHTML = "";
+      passError.innerHTML="";
+      message.innerHTML="";
+
+      let valid=true;
+
+      if(username.value.trim()===""){
+        userError.innerHTML= "Username cannot be empty";
+        valid= false;
+      }
+
+      if(password.value.length < 6){
+        passError.innerHTML="Password must be at least 6 characters";
+        valid= false;
+      }
+
+      if(!valid) return;
+
+      let correctUser= "WifiIt";
+      let correctPass= "itnet@24";
+
+      if(username.value !== correctUser || password.value !== correctPass){
+        let attempts= track();
+
+        if(attempts < 3){
+          message.innerHTML="Enter correct details";
+          message.style.color="red";
+        } else {
+          message.innerHTML = "Account locked! 3 attempts finished";
+          message.style.color="red";
+          loginBtn.disabled= true;
+        }
+      } else{
+        message.innerHTML= "Valid";
+        message.style.color="green";
+        loginBtn.disabled= true;
+      }
+    })
+  </script>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+  <title>Exp4</title>
+  <style>
+    body{
+      background:aqua;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      font-family:Arial;
+    }
+    .analyser{
+      background:#ffffff;
+      padding:25px;
+      width:350px;
+      border-radius:10px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.2);
+      text-align:center;
+    }
+    #inp{
+      width:90%;
+      padding:10px;
+      font-size:15px;
+      margin-bottom:15px;
+      border:2px solid #ccc;
+      border-radius:6px;
+    }
+    #inp:focus{
+      border-color:#4a90e2;
+      outline:none;
+    }
+    #btn{
+      padding:10px 20px;
+      background:#4a90e2;
+      color:white;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+    }
+    #btn:hover{
+      background:#357abd;
+    }
+    .result{
+      margin-top:12px;
+      font-size:15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="analyser">
+    <input type="text" id="inp" placeholder="Enter the string here">
+    <button id="btn">Process</button>
+    <div id="result1" class="result"></div>
+    <div id="result2" class="result"></div>
+    <div id="result3" class="result"></div>
+    <div id="result4" class="result"></div>
+  </div>
+
+<script>
+  let button=document.getElementById("btn");
+  let input=document.getElementById("inp");
+  let result1=document.getElementById("result1");
+  let result2=document.getElementById("result2");
+  let result3=document.getElementById("result3");
+  let result4=document.getElementById("result4");
+
+  button.addEventListener("click",()=>{
+    let str=input.value;
+
+    result1.innerHTML="Reverse: "+str.split("").reverse().join("");
+
+    let count=0;
+    for(let i=0;i<str.length;i++){
+      if("aeiouAEIOU".includes(str[i])) count++;
+    }
+    result2.innerHTML="Vowels: "+count;
+
+    let words=str.split(" ");
+    let longest=words[0]||"";
+    for(let i=1;i<words.length;i++){
+      if(words[i].length>longest.length) longest=words[i];
+    }
+    result3.innerHTML="Longest Word: "+longest;
+
+    result4.innerHTML="Uppercase: "+str.toUpperCase();
+  });
+</script>
+</body>
+</html>
